@@ -6,6 +6,9 @@ export default function App() {
   const [toCurrency, setToCurrency] = useState("IRR");
   const [convertedAmount, setConvertedAmount] = useState(596000);
 
+
+
+  // calculator USD to IRR and IRR to USD
   const handleConvert = () => {
     let conversionRate = 1;
     if (fromCurrency === "USD" && toCurrency === "IRR") {
@@ -17,6 +20,8 @@ export default function App() {
     setConvertedAmount(amount * conversionRate);
   };
 
+
+  // Convert between each other 
   const handleSwapCurrencies = () => {
     setFromCurrency(toCurrency);
     setToCurrency(fromCurrency);
@@ -53,7 +58,9 @@ export default function App() {
               <span className="bg-[#374151] text-white hover:bg-[#4b5563]">
                 {fromCurrency}
               </span>
+              
               <button
+              // shuffle button
                 onClick={handleSwapCurrencies}
                 className="bg-[#374151] text-white outline-none hover:bg-[#4b5563]"
               >
@@ -70,6 +77,7 @@ export default function App() {
             onClick={handleConvert}
             className="bg-[#6366f1] py-2 text-white hover:bg-[#4f46e5] rounded-md "
           >
+            {/* convert button */}
             Convert
           </button>
         </div>
@@ -89,6 +97,8 @@ export default function App() {
   );
 }
 
+
+// shuffle Icon
 function ShuffleIcon(props) {
   return (
     <svg
